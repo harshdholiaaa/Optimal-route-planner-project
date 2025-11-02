@@ -13,18 +13,18 @@ Original file is located at
 # for the Optimal Route Planner project.
 # ---------------------------------------
 
-# Step 1: Create an empty dictionary to store results
+# Created an empty dictionary to store results
 memo = {}
 
-# Step 2: Function to check if a route result already exists
+# S Function to check if a route result already exists
 def get_cached_result(source, destination):
     """
-    Check if the shortest path result between
+    Checking if the shortest path result between
     the given source and destination is already cached.
     """
     key = (source, destination)
     if key in memo:
-        print("\n✅ Using cached result (no recalculation needed).")
+        print("\n Using cached result no recalculation needed.")
         distance, path = memo[key]
         print(f"Shortest distance from {source} to {destination}: {distance} km")
         print(f"Path taken: {path}")
@@ -32,21 +32,16 @@ def get_cached_result(source, destination):
     else:
         return None
 
-# Step 3: Function to store a new result in the cache
+# to store a new result in the cache
 def store_result(source, destination, distance, path):
-    """
-    Store a newly computed shortest path result
-    into the memoization cache.
-    """
     key = (source, destination)
     memo[key] = (distance, path)
     print(f"\n🧠 Result stored in cache for {source} → {destination}")
 
-# Step 4: Function to view all cached routes (for testing)
+#to view all cached routes (for testing)
 def show_all_cached_routes():
-    """Display all stored route results."""
     if not memo:
-        print("\n⚠️ No routes cached yet.")
+        print("\n No routes cached yet.")
         return
     print("\n📜 Cached Routes:")
     for (source, destination), (distance, path) in memo.items():
