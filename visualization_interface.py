@@ -10,6 +10,8 @@ Original file is located at
 # visualization_interface.py
 import networkx as nx
 import matplotlib.pyplot as plt
+#NetworkX — used to create and handle graph structures (nodes and edges).
+#Matplotlib — used to draw and display the graph visually.
 
 def visualize_path(source, destination, path, distance):
     """Display the cities graph and highlight the shortest path."""
@@ -35,6 +37,7 @@ def visualize_path(source, destination, path, distance):
     G = nx.DiGraph()
     for u, v, w in roads:
         G.add_edge(u, v, weight=w)
+        #Creates a directed graph (DiGraph).Each edge stores its weight (distance).Adds all cities and their road connections into the graph.
 
     pos = nx.spring_layout(G, seed=42)
 
@@ -45,11 +48,13 @@ def visualize_path(source, destination, path, distance):
     edge_path = list(zip(path, path[1:]))
     nx.draw_networkx_edges(G, pos, edgelist=edge_path, edge_color='red', width=3)
     nx.draw_networkx_nodes(G, pos, nodelist=path, node_color='orange', node_size=1300)
+    #Sabse se chota path find karta hai with red line and orange colour mee cities hoti hai jo path mee aati hai
 
     edge_labels = nx.get_edge_attributes(G, 'weight')
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=8)
-
+   
     plt.title(f"Optimal Route from {source} to {destination}\n(Distance: {distance} km)")
     plt.axis('off')
     plt.show()
+ #Displays distance labels (weights) next to each road.Adds a title showing the route and total distance.
 
