@@ -30,7 +30,7 @@ if source not in cities or destination not in cities:
     print("Invalid city name entered. Please run again with correct names.")
     exit()
 
-# Step 2: Check if this route is already cached
+# Check if this route is already cached
 cached = get_cached_result(source, destination)
 if cached:
     # If result found, visualize directly
@@ -38,12 +38,12 @@ if cached:
     visualize_path(source, destination, path, distance)
     exit()
 
-# Step 3: If not cached, compute using Bellman-Ford
+# If not cached, compute using Bellman-Ford
 distance, path = bellman_ford_shortest_path(source, destination)
 
-# Step 4: Store result in memoization cache
+# Store result in memoization cache
 store_result(source, destination, distance, path)
 
-# Step 5: Visualize the computed shortest path
+# Visualize the computed shortest path
 visualize_path(source, destination, path, distance)
 
