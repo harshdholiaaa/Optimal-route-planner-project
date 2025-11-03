@@ -9,7 +9,7 @@ Original file is located at
 
 # bellman_ford_module.py
 # ---------------------------------------
-# Contains the Bellman-Ford algorithm
+#  this file  is Agastya's ,Contains the Bellman-Ford algorithm
 # ---------------------------------------
 
 def bellman_ford_shortest_path(source_city, destination_city):
@@ -37,7 +37,7 @@ def bellman_ford_shortest_path(source_city, destination_city):
     predecessor = {city: None for city in cities}
     distance[source_city] = 0
 
-    # Relax edges |V|-1 times
+    # check edges V-1 times
     for _ in range(len(cities) - 1):
         for u, v, w in graph:
             if distance[u] + w < distance[v]:
@@ -45,6 +45,7 @@ def bellman_ford_shortest_path(source_city, destination_city):
                 predecessor[v] = u
 
     # Check for negative weight cycles
+    #because thre exists no - dstance in real life
     for u, v, w in graph:
         if distance[u] + w < distance[v]:
             raise ValueError("Graph contains a negative weight cycle")
