@@ -8,15 +8,11 @@ Original file is located at
 """
 
 # memoization_module.py
-# ---------------------------------------
-# This module handles memoization (caching)
-# for the Optimal Route Planner project.
-# ---------------------------------------
 
-# Step 1: Create an empty dictionary to store results
+# empty dictionary to store results
 memo = {}
 
-# Step 2: Function to check if a route result already exists
+#Function to check if a route result already exists
 def get_cached_result(source, destination):
     """
     Check if the shortest path result between
@@ -32,17 +28,17 @@ def get_cached_result(source, destination):
     else:
         return None
 
-# Step 3: Function to store a new result in the cache
+#  Function to store a new result in the cache
 def store_result(source, destination, distance, path):
     """
-    Store a newly computed shortest path result
-    into the memoization cache.
+    Store a newly computed shortest path means
+    jo n
     """
     key = (source, destination)
     memo[key] = (distance, path)
     print(f"\n🧠 Result stored in cache for {source} → {destination}")
 
-# Step 4: Function to view all cached routes (for testing)
+# Function to view all cached routes
 def show_all_cached_routes():
     """Display all stored route results."""
     if not memo:
